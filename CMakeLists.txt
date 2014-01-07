@@ -14,10 +14,12 @@ hunter_add_package(RapidJSON)
 
 include("${SUGAR_ROOT}/cmake/Sugar")
 
-# Wrappers for building iOS universal libraries
+# Wrappers for building iOS universal libraries + some tools
 #     * https://github.com/ruslo/sugar/wiki/Building-universal-ios-library
 include(sugar_add_executable)
 include(sugar_add_gtest)
+include(sugar_add_library)
+include(sugar_groups_generate)
 include(sugar_include)
 include(sugar_target_link_libraries)
 
@@ -38,6 +40,7 @@ include_directories(${RAPIDJSON_INCLUDE_DIR})
 include_directories("./sources")
 
 add_definitions(-DNETWORK_ENABLE_HTTPS=1) # OpenSSL is REQUIRED
+add_definitions(-DBOOST_ALL_NO_LIB=1) # Disable windows auto-link
 
 # Collect source to variables:
 #     * WEATHER_SOURCES
@@ -45,13 +48,34 @@ add_definitions(-DNETWORK_ENABLE_HTTPS=1) # OpenSSL is REQUIRED
 #     * WEATHER_TEST_SOURCES
 sugar_include("./sources")
 
-sugar_add_executable(weather-cli ${WEATHER_SOURCES} ${WEATHER_CLI_SOURCES})
-sugar_add_executable(weather-test ${WEATHER_SOURCES} ${WEATHER_TEST_SOURCES})
+# Add `SUGAR_SOURCES` to show used `sugar_*.cmake` modules
+sugar_add_library(weather ${WEATHER_SOURCES} ${SUGAR_SOURCES})
+sugar_target_link_libraries(
+    weather
+    ${CPPNETLIB_LIBRARIES}
+    ${OPENSSL_LIBRARIES}
+    ${Boost_LIBRARIES}
+)
 
-set(link_libs ${CPPNETLIB_LIBRARIES} ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES})
+string(COMPARE EQUAL "${CMAKE_OSX_SYSROOT}" "iphoneos" build_ios_app)
 
-sugar_target_link_libraries(weather-cli ${link_libs})
-sugar_target_link_libraries(weather-test ${link_libs} ${GTest_BOTH_LIBRARIES})
+if(build_ios_app)
+  add_subdirectory("./sources/ui/ios")
+endif()
+
+sugar_add_executable(weather-cli ${WEATHER_CLI_SOURCES})
+sugar_add_executable(weather-test ${WEATHER_TEST_SOURCES})
+
+sugar_target_link_libraries(weather-cli weather)
+sugar_target_link_libraries(weather-test weather ${GTEST_BOTH_LIBRARIES})
+
+# Generate source groups to fit directories layout (Xcode, Visual Studio)
+sugar_groups_generate(
+    ${WEATHER_SOURCES}
+    ${WEATHER_CLI_SOURCES}
+    ${WEATHER_TEST_SOURCES}
+    ${SUGAR_SOURCES}
+)
 
 enable_testing()
 sugar_add_gtest(WeatherTest weather-test)

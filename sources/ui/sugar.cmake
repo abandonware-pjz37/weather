@@ -12,5 +12,3 @@ endif()
 include(sugar_include)
 
 sugar_include(cli)
-sugar_include(ios)
-

@@ -9,3 +9,16 @@ else()
   set(WEATHER_SOURCES_UI_IOS_SUGAR_CMAKE_ 1)
 endif()
 
+include(sugar_files)
+include(sugar_include)
+
+sugar_include(resources)
+
+sugar_files(
+    WEATHER_IOS_SOURCES
+    AppDelegate.h
+    AppDelegate.mm
+    ViewController.h
+    ViewController.mm
+    main.mm
+)
