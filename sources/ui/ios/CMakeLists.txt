@@ -26,3 +26,8 @@ sugar_target_link_libraries(weather-ios weather)
 sugar_groups_generate(
     ${WEATHER_IOS_SOURCES} ${WEATHER_IOS_RESOURCES} ${WEATHER_PLIST}
 )
+
+# Universal device (iPhone + iPad)
+set_target_properties(
+    weather-ios PROPERTIES XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2"
+)
