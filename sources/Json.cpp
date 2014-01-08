@@ -4,6 +4,7 @@
 #include "Json.hpp"
 
 #include <sstream> // std::ostringstream
+#include <boost/lexical_cast.hpp>
 #include "Exception.hpp"
 
 Json::Json(const char* doc) {
@@ -34,14 +35,29 @@ std::string Json::get(const char* x, const char* y) {
     id << " second not found";
     throw Exception(id.str());
   }
+
   const Value& value_y = value_x[y];
-  if (!value_y.IsDouble()) {
-    id << " is not double";
+  if (value_y.IsDouble()) {
+    // boost::lexical_cast output result as: 40.420000000000002
+    std::ostringstream result;
+    result << value_y.GetDouble();
+    return result.str();
+  }
+  else if (value_y.IsInt()) {
+    return boost::lexical_cast<std::string>(value_y.GetInt());
+  }
+  else if (value_y.IsInt64()) {
+    return boost::lexical_cast<std::string>(value_y.GetInt64());
+  }
+  else if (value_y.IsUint()) {
+    return boost::lexical_cast<std::string>(value_y.GetUint());
+  }
+  else if (value_y.IsUint64()) {
+    return boost::lexical_cast<std::string>(value_y.GetUint64());
+  }
+  else {
+    assert(!value_y.IsNumber());
+    id << " is not number";
     throw Exception(id.str());
   }
-
-  // boost::lexical_cast output result as: 40.420000000000002
-  std::ostringstream result;
-  result << value_y.GetDouble();
-  return result.str();
 }
