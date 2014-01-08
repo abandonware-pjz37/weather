@@ -31,3 +31,21 @@ sugar_groups_generate(
 set_target_properties(
     weather-ios PROPERTIES XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2"
 )
+
+set_target_properties(
+    weather-ios
+    PROPERTIES
+    XCODE_ATTRIBUTE_PRODUCT_NAME
+    "Weather"
+    XCODE_ATTRIBUTE_BUNDLE_IDENTIFIER
+    "com.github.ruslo.weather"
+)
+
+set_target_properties(
+    weather-ios
+    PROPERTIES
+    XCODE_ATTRIBUTE_PRODUCT_NAME[variant=Debug]
+    "Weather-D"
+    XCODE_ATTRIBUTE_BUNDLE_IDENTIFIER[variant=Debug]
+    "com.github.ruslo.weather.debug"
+)
