@@ -8,11 +8,11 @@
 
 class Weather {
  public:
-  Result get_result(const char* city) BOOST_NOEXCEPT;
+  static Result get_result(const char* city) BOOST_NOEXCEPT;
 
  private:
-  Result process_city(const char* city);
-  std::string get_body(const char* city);
+  static Result process_city(const char* city);
+  static std::string get_body(const char* city);
 };
 
 #endif // WEATHER_HPP_

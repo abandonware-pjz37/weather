@@ -5,8 +5,7 @@
 #include "Weather.hpp"
 
 TEST(Weather, Madrid) {
-  Weather weather;
-  Result result = weather.get_result("Madrid");
+  Result result = Weather::get_result("Madrid");
   ASSERT_TRUE(result.is_ok());
 
   std::cout << "longitude: " << result.longitude() << std::endl;

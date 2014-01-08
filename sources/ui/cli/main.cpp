@@ -11,8 +11,7 @@ int main(int argc, char** argv) {
     return EXIT_FAILURE;
   }
 
-  Weather weather;
-  Result result = weather.get_result(argv[1]);
+  Result result = Weather::get_result(argv[1]);
 
   if (!result.is_ok()) {
     std::cerr << result.error_message() << std::endl;
