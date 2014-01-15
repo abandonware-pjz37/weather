@@ -18,7 +18,5 @@ sugar_files(
     WEATHER_IOS_SOURCES
     AppDelegate.h
     AppDelegate.mm
-    ViewController.h
-    ViewController.mm
     main.mm
 )
