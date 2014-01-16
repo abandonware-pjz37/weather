@@ -19,6 +19,14 @@
 // UIViewContoller override
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+  // hold some space, otherwise rectangle width becomes 0
+  NSString* placeholder = @"                ";
+  [_latitude setText:placeholder];
+  [_longitude setText:placeholder];
+  [_temperature setText:placeholder];
+  [_wind_speed setText:placeholder];
+
   // Do any additional setup after loading the view, typically from a nib.
 }
 
