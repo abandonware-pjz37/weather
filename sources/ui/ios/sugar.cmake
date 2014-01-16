@@ -12,6 +12,7 @@ endif()
 include(sugar_files)
 include(sugar_include)
 
+sugar_include(iphone)
 sugar_include(resources)
 
 sugar_files(
