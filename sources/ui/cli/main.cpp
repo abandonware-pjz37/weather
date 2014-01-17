@@ -13,15 +13,26 @@ int main(int argc, char** argv) {
 
   Result result = Weather::get_result(argv[1]);
 
-  if (!result.is_ok()) {
-    std::cerr << result.error_message() << std::endl;
+  const Result::Opt<Result::Error>& error = result.error();
+
+  if (error.is_initialized()) {
+    std::cerr << error->error_message << std::endl;
     return EXIT_FAILURE;
   }
 
-  std::cout << "longitude: " << result.longitude() << std::endl;
-  std::cout << "lattitude: " << result.lattitude() << std::endl;
-  std::cout << "temperature: " << result.temperature() << std::endl;
-  std::cout << "wind speed: " << result.wind_speed() << std::endl;
+  const Result::Opt<Result::Mandatory>& mandatory = result.mandatory();
+  assert(mandatory.is_initialized());
+
+  std::cout << "longitude: " << mandatory->longitude << std::endl;
+  std::cout << "lattitude: " << mandatory->lattitude << std::endl;
+  std::cout << "temperature: " << mandatory->temperature << std::endl;
+  std::cout << "wind speed: " << mandatory->wind_speed << std::endl;
+
+  const Result::Opt<Result::Detailed>& detailed = result.detailed();
+  if (detailed.is_initialized()) {
+    std::cout << "description: " << detailed->description << std::endl;
+    std::cout << "icon: " << detailed->icon << std::endl;
+  }
 
   return EXIT_SUCCESS;
 }

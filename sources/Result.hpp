@@ -4,47 +4,63 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#include <string>
-#include <boost/config.hpp> // BOOST_NOEXCEPT
+#include <boost/optional.hpp>
 
 class Result {
  public:
-  static Result make(
-      std::string longitude,
-      std::string lattitude,
-      std::string temperature,
-      std::string wind_speed
-  );
+  using String = std::string;
 
-  static Result make_failed(std::string error_message);
+  template <class T>
+  using Opt = boost::optional<T>;
 
-  bool is_ok() const BOOST_NOEXCEPT;
+  struct Mandatory {
+    Mandatory(String longit, String latt, String temp, String w_speed):
+      longitude(longit),
+      lattitude(latt),
+      temperature(temp),
+      wind_speed(w_speed) {
+    }
 
-  std::string error_message() const BOOST_NOEXCEPT;
+    const String longitude;
+    const String lattitude;
+    const String temperature;
+    const String wind_speed;
+  };
 
-  std::string longitude() const BOOST_NOEXCEPT;
-  std::string lattitude() const BOOST_NOEXCEPT;
-  std::string temperature() const BOOST_NOEXCEPT;
-  std::string wind_speed() const BOOST_NOEXCEPT;
+  struct Detailed {
+    Detailed(String ic, String desr): icon(ic), description(desr) {
+    }
 
- private:
-  Result(
-      std::string longitude,
-      std::string lattitude,
-      std::string temperature,
-      std::string wind_speed
-  );
+    const String icon;
+    const String description;
+  };
 
-  Result(std::string error_message);
+  struct Error {
+    Error(String err_message): error_message(err_message) {
+    }
 
-  const bool is_ok_;
+    const String error_message;
+  };
 
-  const std::string error_message_;
+  explicit Result(Error error): error_(error) {
+  }
 
-  const std::string longitude_;
-  const std::string lattitude_;
-  const std::string temperature_;
-  const std::string wind_speed_;
+  explicit Result(Mandatory mandatory): mandatory_(mandatory) {
+  }
+
+  Result(Mandatory mandatory, Detailed detailed):
+      mandatory_(mandatory),
+      detailed_(detailed) {
+  }
+
+  const Opt<Mandatory>& mandatory() BOOST_NOEXCEPT { return mandatory_; }
+  const Opt<Detailed>& detailed() BOOST_NOEXCEPT { return detailed_; }
+  const Opt<Error>& error() BOOST_NOEXCEPT { return error_; }
+
+private:
+  Opt<Mandatory> mandatory_;
+  Opt<Detailed> detailed_;
+  Opt<Error> error_;
 };
 
 #endif // RESULT_HPP_

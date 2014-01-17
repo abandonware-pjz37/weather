@@ -12,13 +12,13 @@ Result Weather::get_result(const char* city) BOOST_NOEXCEPT {
     return process_city(city);
   }
   catch (Exception& exception) {
-    return Result::make_failed(exception.what());
+    return Result(Result::Error(exception.what()));
   }
   catch (std::exception& exception) {
-    return Result::make_failed(exception.what());
+    return Result(Result::Error(exception.what()));
   }
   catch (...) {
-    return Result::make_failed("Unknown exception");
+    return Result(Result::Error("Unknown exception"));
   }
 }
 
@@ -27,18 +27,31 @@ Result Weather::process_city(const char* city) {
 
   Json doc(body.c_str());
 
-  std::string temperature = doc.get("main", "temp");
+  std::string temperature = doc.get_number("main", "temp");
   assert(!temperature.empty());
   if (temperature[0] != '-') {
     temperature = '+' + temperature;
   }
 
-  return Result::make(
-      doc.get("coord", "lon"),
-      doc.get("coord", "lat"),
+  Result::Mandatory mandatory(
+      doc.get_number("coord", "lon"),
+      doc.get_number("coord", "lat"),
       temperature,
-      doc.get("wind", "speed") + " mps"
+      doc.get_number("wind", "speed") + " mps"
   );
+
+  try {
+    Result::Detailed detailed(
+        doc.get_string("weather", "icon"),
+        doc.get_string("weather", "description")
+    );
+    return Result(mandatory, detailed);
+  }
+  catch(Exception&) {
+    // ignore exception, detailed description is optional
+  }
+
+  return Result(mandatory);
 }
 
 std::string Weather::get_body(const char* city) {

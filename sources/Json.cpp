@@ -22,7 +22,7 @@ Json::Json(const char* doc) {
   }
 }
 
-std::string Json::get(const char* x, const char* y) {
+std::string Json::get_number(const char* x, const char* y) {
   std::ostringstream id;
   id << '[' << x << ',' << y << ']';
 
@@ -60,4 +60,24 @@ std::string Json::get(const char* x, const char* y) {
     id << " is not number";
     throw Exception(id.str());
   }
+}
+
+std::string Json::get_string(const char* x, const char* y) {
+  if (!doc_.HasMember(x)) {
+    throw Exception("");
+  }
+
+  const Value& first = doc_[x];
+  if (!first.IsArray()) {
+    throw Exception("");
+  }
+
+  // get only one element
+  assert(first.Size() > 0);
+  const Value& second = first[rapidjson::SizeType(0)];
+  if (!second.HasMember(y)) {
+    throw Exception("");
+  }
+
+  return second[y].GetString();
 }

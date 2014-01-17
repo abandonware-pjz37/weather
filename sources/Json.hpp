@@ -10,7 +10,9 @@
 class Json {
  public:
   Json(const char* doc);
-  std::string get(const char* x, const char* y);
+
+  std::string get_number(const char* x, const char* y);
+  std::string get_string(const char* x, const char* y);
 
  private:
   using Value = rapidjson::Value;
