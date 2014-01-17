@@ -27,10 +27,16 @@ Result Weather::process_city(const char* city) {
 
   Json doc(body.c_str());
 
+  std::string temperature = doc.get("main", "temp");
+  assert(!temperature.empty());
+  if (temperature[0] != '-') {
+    temperature = '+' + temperature;
+  }
+
   return Result::make(
       doc.get("coord", "lon"),
       doc.get("coord", "lat"),
-      doc.get("main", "temp"),
+      temperature,
       doc.get("wind", "speed")
   );
 }
