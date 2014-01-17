@@ -20,7 +20,6 @@ sugar_files(
     Exception.hpp
     Json.cpp
     Json.hpp
-    Result.cpp
     Result.hpp
     Weather.cpp
     Weather.hpp
