@@ -77,7 +77,7 @@
                                                     <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="11n.png" id="Zoj-q4-XMQ">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="11d.png" id="Zoj-q4-XMQ">
                                                     <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -553,7 +553,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="11n.png" width="50" height="50"/>
+        <image name="11d.png" width="50" height="50"/>
         <image name="about.png" width="30" height="30"/>
         <image name="boost.png" width="40" height="40"/>
         <image name="cmake.png" width="40" height="40"/>
