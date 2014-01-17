@@ -37,7 +37,7 @@ Result Weather::process_city(const char* city) {
       doc.get("coord", "lon"),
       doc.get("coord", "lat"),
       temperature,
-      doc.get("wind", "speed")
+      doc.get("wind", "speed") + " mps"
   );
 }
 
