@@ -31,4 +31,5 @@ sugar_files(
     13n.png
     50d.png
     50n.png
+    empty.png
 )
