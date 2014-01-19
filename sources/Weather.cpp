@@ -33,6 +33,9 @@ Result Weather::process_city(const char* city) {
     temperature = '+' + temperature;
   }
 
+  // http://www.fileformat.info/info/unicode/char/2103/index.htm
+  temperature += " \xE2\x84\x83"; // Degree Celsius
+
   Result::Mandatory mandatory(
       doc.get_number("coord", "lon"),
       doc.get_number("coord", "lat"),
