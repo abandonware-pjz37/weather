@@ -8,7 +8,9 @@
 #import <UIKit/UIImage.h>
 #include "Weather.hpp"
 
-@interface WeatherTab ()
+@interface WeatherTab () {
+  Weather* weather;
+}
 @property (retain, nonatomic) IBOutlet UITextField *city_field;
 @property (retain, nonatomic) IBOutlet UILabel *longitude;
 @property (retain, nonatomic) IBOutlet UILabel *latitude;
@@ -33,7 +35,8 @@
   [_description setText:placeholder];
   _icon.image = [UIImage imageNamed:@"empty"];
 
-  // Do any additional setup after loading the view, typically from a nib.
+  assert(weather == nullptr);
+  weather = new Weather;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +49,7 @@
   assert(_city_field == textField);
   const char* city = [textField.text UTF8String];
   if (!std::string(city).empty()) {
-    Result result = Weather::get_result(city);
+    Result result = weather->get_result(city);
     const Result::Opt<Result::Error>& error = result.error();
     if (error.is_initialized()) {
       NSString* message = [
@@ -105,6 +108,11 @@
   [_city_field release];
   [_description release];
   [_icon release];
+
+  assert(weather != nullptr);
+  delete weather;
+  weather = nullptr;
+
   [super dealloc];
 }
 

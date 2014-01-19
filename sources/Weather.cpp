@@ -4,8 +4,15 @@
 #include "Weather.hpp"
 
 #include <boost/network/protocol/http/client.hpp>
+
 #include "Exception.hpp"
 #include "Json.hpp"
+
+Weather::Weather(): client_(new Client) {
+}
+
+Weather::~Weather() {
+}
 
 Result Weather::get_result(const char* city) BOOST_NOEXCEPT {
   try {
@@ -67,7 +74,6 @@ std::string Weather::get_body(const char* city) {
 
   http::client::request request(request_url);
   request << network::header("Connection", "close");
-  http::client client;
-  http::client::response response = client.get(request);
+  http::client::response response = client_->get(request);
   return http::body(response);
 }
