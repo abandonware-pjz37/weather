@@ -66,7 +66,7 @@ Result Weather::process_city(const char* city) {
 
 std::string Weather::get_body(const char* city) {
   std::string request_url("http://api.openweathermap.org/data/2.5/weather?q=");
-  request_url += city;
+  request_url += boost::network::uri::encoded(city);
   request_url += "&units=metric";
 
   namespace network = boost::network;
