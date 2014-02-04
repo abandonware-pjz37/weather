@@ -11,7 +11,8 @@ int main(int argc, char** argv) {
     return EXIT_FAILURE;
   }
 
-  Result result = Weather::get_result(argv[1]);
+  Weather weather;
+  Result result = weather.get_result(argv[1]);
 
   const Result::Opt<Result::Error>& error = result.error();
 
