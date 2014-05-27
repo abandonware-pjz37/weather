@@ -1,10 +1,10 @@
 # Copyright (c) 2014, Ruslan Baratov
 # All rights reserved.
 
-if(DEFINED WEATHER_SOURCES_UI_IOS_RESOURCES_SUGAR_CMAKE_)
+if(DEFINED WEATHER_UI_IOS_RESOURCES_SUGAR_CMAKE_)
   return()
 else()
-  set(WEATHER_SOURCES_UI_IOS_RESOURCES_SUGAR_CMAKE_ 1)
+  set(WEATHER_UI_IOS_RESOURCES_SUGAR_CMAKE_ 1)
 endif()
 
 include(sugar_files)

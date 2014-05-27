@@ -11,25 +11,39 @@ endif()
 #     * WEATHER_PLIST
 sugar_include("./")
 
-include(sugar_mark_macosx_resources)
-
-sugar_mark_macosx_resources(${WEATHER_IOS_RESOURCES})
-sugar_add_executable(
+add_executable(
     weather-ios
+    ${WEATHER_SOURCES}
     ${WEATHER_IOS_SOURCES}
     ${WEATHER_IOS_RESOURCES}
     ${WEATHER_PLIST}
 )
-sugar_set_xcode_ios_sdkroot(TARGET weather-ios PLIST ${WEATHER_PLIST})
-sugar_target_link_libraries(weather-ios weather)
 
-sugar_groups_generate(
-    ${WEATHER_IOS_SOURCES} ${WEATHER_IOS_RESOURCES} ${WEATHER_PLIST}
+target_link_libraries(
+    weather-ios
+    sober
+    "-framework CoreGraphics"
+    "-framework Foundation"
+    "-framework UIKit"
+    "-framework MapKit"
 )
 
-# Universal device (iPhone + iPad)
+sugar_groups_generate(
+    ${WEATHER_SOURCES}
+    ${WEATHER_IOS_SOURCES}
+    ${WEATHER_IOS_RESOURCES}
+    ${WEATHER_PLIST}
+)
+
 set_target_properties(
-    weather-ios PROPERTIES XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2"
+    weather-ios
+    PROPERTIES
+    MACOSX_BUNDLE YES
+    MACOSX_BUNDLE_INFO_PLIST "${WEATHER_PLIST}"
+    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
+    XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2" # Universal (iPhone + iPad)
+    XCODE_ATTRIBUTE_CLANG_ENABLE_OBJC_ARC YES
+    RESOURCE "${WEATHER_IOS_RESOURCES}"
 )
 
 set_target_properties(
