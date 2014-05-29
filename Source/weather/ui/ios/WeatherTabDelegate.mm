@@ -4,21 +4,19 @@
 #include <weather/ui/ios/WeatherTabDelegate.hpp>
 
 #include <sober/network/http/response/attribute/StatusCode.hpp>
-#include <weather/ui/ios/iphone/WeatherTab.h>
 
 namespace weather {
 namespace ui {
 namespace ios {
 
 WeatherTabDelegate::WeatherTabDelegate(
-    sober::network::http::Stream& stream, void* weather_tab
+    sober::network::http::Stream& stream, WeatherTab* weather_tab
 ): DelegateBase(stream), weather_tab_(weather_tab) {
 }
 
 bool WeatherTabDelegate::force_stop() {
   const bool stop = DelegateBase::force_stop();
-  WeatherTab* x = (__bridge WeatherTab*)weather_tab_;
-  [x on_watchdog_counter:counter() max:max_count() stop:stop];
+  [weather_tab_ on_watchdog_counter:counter() max:max_count() stop:stop];
   return stop;
 }
 
@@ -41,8 +39,7 @@ void WeatherTabDelegate::on_success() {
   NSString* icon =
       [NSString stringWithUTF8String:attr.icon.c_str()];
 
-  WeatherTab* x = (__bridge WeatherTab*)weather_tab_;
-  [x
+  [weather_tab_
       on_success_longitude:attr.longitude
       latitude:attr.latitude
       temperature:temperature
@@ -67,8 +64,7 @@ bool WeatherTabDelegate::restart_on_error(const StatusCode& status_code) {
 
 void WeatherTabDelegate::on_error() {
   NSString* message = [NSString stringWithUTF8String:buffer_.str().c_str()];
-  WeatherTab* x = (__bridge WeatherTab*)weather_tab_;
-  [x on_error:message];
+  [weather_tab_ on_error:message];
 }
 
 } // namespace ios

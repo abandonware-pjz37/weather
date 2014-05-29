@@ -1,7 +1,7 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import "SearchBar.h"
+#import "SearchBar.hpp"
 
 @implementation SearchBar
 

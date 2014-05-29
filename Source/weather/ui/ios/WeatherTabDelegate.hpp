@@ -6,10 +6,8 @@
 
 #include <weather/ui/ios/WeatherTabDelegate.fpp>
 
+#include <weather/ui/ios/iphone/WeatherTab.h>
 #include <weather/DelegateBase.hpp>
-
-// This file is C++ only (included by EngineWrapper.cpp)
-// => `void*` used instead of `@interface WeatherTab`
 
 namespace weather {
 namespace ui {
@@ -17,7 +15,9 @@ namespace ios {
 
 class WeatherTabDelegate: public DelegateBase {
  public:
-  WeatherTabDelegate(sober::network::http::Stream& stream, void* weather_tab);
+  using Stream = sober::network::http::Stream;
+
+  WeatherTabDelegate(Stream& stream, WeatherTab* weather_tab);
 
   virtual bool force_stop() override;
   virtual void on_success() override;
@@ -27,7 +27,7 @@ class WeatherTabDelegate: public DelegateBase {
  private:
   void on_error();
 
-  void* weather_tab_;
+  WeatherTab* weather_tab_;
   std::ostringstream buffer_;
 };
 
