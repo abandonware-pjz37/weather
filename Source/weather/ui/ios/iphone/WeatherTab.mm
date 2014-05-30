@@ -13,7 +13,7 @@
 #import <weather/ui/ios/SearchBar.hpp>
 
 #include <boost/log/sinks.hpp>
-#include <boost/log/utility/empty_deleter.hpp>
+#include <boost/utility/empty_deleter.hpp>
 #include <boost/log/utility/setup.hpp>
 #include <weather/DelegateBase.hpp>
 #include <sober/log/attributes.hpp> // log::severity
@@ -44,7 +44,7 @@
 
   auto sink = boost::make_shared<Sink>();
   sink->locked_backend()->add_stream(
-      boost::shared_ptr<std::ostream>(&std::cout, boost::log::empty_deleter())
+      boost::shared_ptr<std::ostream>(&std::cout, boost::empty_deleter())
   );
   sink->set_formatter(&sober::log::formatter);
   sink->set_filter(sober::log::severity != sober::log::Severity::DEBUG);
