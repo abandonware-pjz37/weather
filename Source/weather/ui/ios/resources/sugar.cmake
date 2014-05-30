@@ -14,7 +14,6 @@ sugar_files(
     Default-568h@2x.png
     Default.png
     Default@2x.png
-    MainStoryboard_iPad.storyboard
     MainStoryboard_iPhone.storyboard
     about.png
     weather.png

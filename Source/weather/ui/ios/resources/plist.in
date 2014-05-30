@@ -49,16 +49,7 @@
     <string>UIInterfaceOrientationLandscapeLeft</string>
     <string>UIInterfaceOrientationLandscapeRight</string>
   </array>
-  <key>UISupportedInterfaceOrientations~ipad</key>
-  <array>
-    <string>UIInterfaceOrientationPortrait</string>
-    <string>UIInterfaceOrientationPortraitUpsideDown</string>
-    <string>UIInterfaceOrientationLandscapeLeft</string>
-    <string>UIInterfaceOrientationLandscapeRight</string>
-  </array>
   <key>UIMainStoryboardFile</key>
   <string>MainStoryboard_iPhone</string>
-  <key>UIMainStoryboardFile~ipad</key>
-  <string>MainStoryboard_iPad</string>
 </dict>
 </plist>
