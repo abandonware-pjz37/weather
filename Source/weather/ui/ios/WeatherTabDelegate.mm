@@ -49,6 +49,10 @@ void WeatherTabDelegate::on_success() {
 }
 
 bool WeatherTabDelegate::restart_on_error(const ErrorCode& error) {
+  bool do_restart = DelegateBase::restart_on_error(error);
+  if (do_restart) {
+    return true;
+  }
   buffer_.str("");
   buffer_ << error.message();
   on_error();

@@ -20,6 +20,9 @@ class DelegateBase: public sober::network::api::OpenWeatherMap {
   virtual bool force_stop() override;
   virtual boost::posix_time::time_duration watchdog_period() override;
 
+  virtual bool restart_on_error(const ErrorCode& error) override;
+  virtual boost::posix_time::time_duration restart_pause() override;
+
   int max_count() const;
   int counter() const;
 
