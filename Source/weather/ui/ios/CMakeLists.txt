@@ -43,6 +43,9 @@ set_target_properties(
     XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
     XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1" # iPhone
     XCODE_ATTRIBUTE_CLANG_ENABLE_OBJC_ARC YES
+    XCODE_ATTRIBUTE_INSTALL_PATH "${CMAKE_BINARY_DIR}/ProductRelease"
+    XCODE_ATTRIBUTE_COMBINE_HIDPI_IMAGES "NO" # If this setting is "YES"
+        # application can't pass archive validation
     RESOURCE "${WEATHER_IOS_RESOURCES}"
 )
 
@@ -50,7 +53,7 @@ set_target_properties(
     weather-ios
     PROPERTIES
     XCODE_ATTRIBUTE_PRODUCT_NAME
-    "Weather"
+    "Weather."
     XCODE_ATTRIBUTE_BUNDLE_IDENTIFIER
     "com.github.ruslo.weather"
 )
@@ -59,7 +62,7 @@ set_target_properties(
     weather-ios
     PROPERTIES
     XCODE_ATTRIBUTE_PRODUCT_NAME[variant=Debug]
-    "Weather-D"
+    "Weather-Dbg"
     XCODE_ATTRIBUTE_BUNDLE_IDENTIFIER[variant=Debug]
     "com.github.ruslo.weather.debug"
 )
