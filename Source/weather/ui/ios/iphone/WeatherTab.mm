@@ -63,7 +63,8 @@
   engine->run(city.c_str());
 }
 
-// Called from WeatherTabDelegate
+#pragma mark - Called from WeatherTabDelegate
+
 - (void)on_watchdog_counter:(int)counter max:(int)max stop:(bool)stop {
   if (stop) {
     [self.progress clear];
@@ -131,7 +132,8 @@
   [alert show];
 }
 
-// UIViewContoller override
+#pragma mark - UIViewContoller override
+
 - (void)viewDidLoad {
   [super viewDidLoad];
 
@@ -153,7 +155,8 @@
   [self.progress clear];
 }
 
-// MKMapViewDelegate
+#pragma mark - MKMapViewDelegate
+
 - (MKAnnotationView*)mapView:(MKMapView*)map_view
     viewForAnnotation:(id<MKAnnotation>)annotation {
   assert(map_view == self.map_view);
@@ -186,7 +189,8 @@
   return view;
 }
 
-// UISearchBarDelegate
+#pragma mark - UISearchBarDelegate
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
   assert(_search_bar == searchBar);
   [self start_search];
@@ -208,6 +212,8 @@
   assert(_search_bar == searchBar);
   [_search_bar first_responder:YES];
 }
+
+#pragma mark
 
 - (void)dealloc {
   assert(engine != nullptr);

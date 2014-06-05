@@ -49,13 +49,15 @@
   }
 }
 
-// UITableViewController override
+#pragma mark - UITableViewController override
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.table_view.delegate = self;
 }
 
-// UITableViewDelegate
+#pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)table_view
     didSelectRowAtIndexPath:(NSIndexPath *)index_path {
   assert(table_view == self.table_view);
