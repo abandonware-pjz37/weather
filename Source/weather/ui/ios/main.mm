@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
   @autoreleasepool {
-    NSString *principalClassName = nil; // UIApplication is assumed
+    NSString *principalClassName = nullptr; // UIApplication is assumed
     return UIApplicationMain(
         argc,
         argv,
