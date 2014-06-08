@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Weather-->
+        <scene sceneID="KyN-yb-4oW">
+            <objects>
+                <viewController storyboardIdentifier="Weather" id="dAR-FM-DeW" userLabel="Weather" customClass="Weather" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7i0-WH-m4A"/>
+                        <viewControllerLayoutGuide type="bottom" id="SSl-cy-4Ey"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z0B-er-sHT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-BW-V5Q">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                            <searchBar alpha="0.69999999999999996" contentMode="redraw" placeholder="Please enter city..." translatesAutoresizingMaskIntoConstraints="NO" id="h6m-nC-9Gy" customClass="SearchBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="alphabet"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7h-5f-oHt">
+                                <rect key="frame" x="108" y="271" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2SJ-Ox-hIa">
+                                <rect key="frame" x="61" y="263" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="A7h-5f-oHt" secondAttribute="centerY" constant="2.5" id="Ouf-QO-lNN"/>
+                            <constraint firstItem="A7h-5f-oHt" firstAttribute="centerY" secondItem="2SJ-Ox-hIa" secondAttribute="centerY" id="PzE-77-Ao2"/>
+                            <constraint firstItem="SSl-cy-4Ey" firstAttribute="top" secondItem="f4u-BW-V5Q" secondAttribute="bottom" id="QeC-7U-0Tx" userLabel="map bottom"/>
+                            <constraint firstItem="f4u-BW-V5Q" firstAttribute="leading" secondItem="Z0B-er-sHT" secondAttribute="leading" id="Sts-Es-gt9" userLabel="map left"/>
+                            <constraint firstItem="h6m-nC-9Gy" firstAttribute="top" secondItem="7i0-WH-m4A" secondAttribute="bottom" id="TAO-yZ-lPJ" userLabel="search bar at top"/>
+                            <constraint firstAttribute="trailing" secondItem="f4u-BW-V5Q" secondAttribute="trailing" id="WMz-4o-LYh" userLabel="map right"/>
+                            <constraint firstItem="A7h-5f-oHt" firstAttribute="leading" secondItem="2SJ-Ox-hIa" secondAttribute="trailing" constant="10" id="X9c-mD-8eV"/>
+                            <constraint firstAttribute="trailing" secondItem="h6m-nC-9Gy" secondAttribute="trailing" id="eGb-8b-Djf" userLabel="search bar right"/>
+                            <constraint firstAttribute="centerX" secondItem="A7h-5f-oHt" secondAttribute="centerX" id="oWZ-Bf-2Wi"/>
+                            <constraint firstItem="f4u-BW-V5Q" firstAttribute="top" secondItem="h6m-nC-9Gy" secondAttribute="bottom" id="qwA-15-MbV" userLabel="map top hit search bar bottom"/>
+                            <constraint firstItem="h6m-nC-9Gy" firstAttribute="leading" secondItem="Z0B-er-sHT" secondAttribute="leading" id="vfJ-hi-9ku" userLabel="search bar left"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="activity_indicator" destination="2SJ-Ox-hIa" id="jde-o7-hcr"/>
+                        <outlet property="map_view" destination="f4u-BW-V5Q" id="vaR-uY-Taf"/>
+                        <outlet property="progress_text" destination="A7h-5f-oHt" id="xJh-3b-eOd"/>
+                        <outlet property="search_bar" destination="h6m-nC-9Gy" id="yRG-fu-9kg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YsI-FN-bA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="41" y="115"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

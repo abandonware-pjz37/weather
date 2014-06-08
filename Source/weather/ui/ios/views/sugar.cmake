@@ -15,12 +15,16 @@ sugar_files(
     About.mm
     Weather.h
     Weather.mm
+    iPhone.h
+    iPhone.mm
 )
 
 sugar_files(
     WEATHER_IOS_RESOURCES
     iPhone.storyboard
     iPad.storyboard
+    About.storyboard
+    Weather.storyboard
     about.png
     weather.png
 )
