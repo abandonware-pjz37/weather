@@ -4,7 +4,7 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import <weather/ui/ios/iphone/WeatherTab.h>
+#import <weather/ui/ios/views/Weather.h>
 #include <sober/network/Engine.hpp>
 #include <sober/network/http/Stream.hpp>
 #include <weather/ui/ios/WeatherTabDelegate.hpp>
@@ -15,7 +15,7 @@ namespace ios {
 
 class EngineWrapper {
  public:
-  EngineWrapper(WeatherTab* weather_tab);
+  EngineWrapper(Weather* weather_view);
   ~EngineWrapper();
 
   void run(const char* city);

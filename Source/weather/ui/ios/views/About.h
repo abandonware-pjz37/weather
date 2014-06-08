@@ -3,5 +3,5 @@
 
 #import <UIKit/UITableViewController.h>
 
-@interface AboutTab: UITableViewController <UITableViewDelegate>
+@interface About: UITableViewController <UITableViewDelegate>
 @end

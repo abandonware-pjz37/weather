@@ -1,7 +1,7 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import <weather/ui/ios/iphone/WeatherTab.h>
+#import <weather/ui/ios/views/Weather.h>
 
 #import <MapKit/MapKit.h> // MKMapView
 #import <UIKit/UIImageView.h>
@@ -18,7 +18,7 @@
 #include <weather/DelegateBase.hpp>
 #include <sober/log/attributes.hpp> // log::severity
 
-@interface WeatherTab () {
+@interface Weather () {
   weather::ui::ios::EngineWrapper* engine;
 }
 - (void)init_logging;
@@ -33,7 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *progress_text;
 @end
 
-@implementation WeatherTab
+@implementation Weather
 
 - (void)init_logging {
   // Init boost.log

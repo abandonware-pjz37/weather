@@ -6,7 +6,7 @@
 
 #include <weather/ui/ios/WeatherTabDelegate.fpp>
 
-#include <weather/ui/ios/iphone/WeatherTab.h>
+#include <weather/ui/ios/views/Weather.h>
 #include <weather/DelegateBase.hpp>
 
 namespace weather {
@@ -17,7 +17,7 @@ class WeatherTabDelegate: public DelegateBase {
  public:
   using Stream = sober::network::http::Stream;
 
-  WeatherTabDelegate(Stream& stream, WeatherTab* weather_tab);
+  WeatherTabDelegate(Stream& stream, Weather* weather_view);
 
   virtual bool force_stop() override;
   virtual void on_success() override;
@@ -27,7 +27,7 @@ class WeatherTabDelegate: public DelegateBase {
  private:
   void on_error();
 
-  WeatherTab* weather_tab_;
+  Weather* weather_view_;
   std::ostringstream buffer_;
 };
 

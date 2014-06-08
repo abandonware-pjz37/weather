@@ -1,14 +1,14 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import <weather/ui/ios/iphone/AboutTab.h>
+#import <weather/ui/ios/views/About.h>
 
-@interface AboutTab ()
+@interface About ()
 @property (strong, nonatomic) IBOutlet UITableView *table_view;
 - (NSString*)get_url:(NSIndexPath*)index_path;
 @end
 
-@implementation AboutTab
+@implementation About
 
 - (NSString*)get_url:(NSIndexPath*)index_path {
   assert(index_path.length == 2);

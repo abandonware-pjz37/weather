@@ -7,9 +7,9 @@ namespace weather {
 namespace ui {
 namespace ios {
 
-EngineWrapper::EngineWrapper(WeatherTab* weather_tab):
+EngineWrapper::EngineWrapper(Weather* weather_view):
     stream_(engine_),
-    delegate_(stream_, weather_tab) {
+    delegate_(stream_, weather_view) {
 }
 
 EngineWrapper::~EngineWrapper() {
