@@ -12,7 +12,4 @@ endif()
 include(sugar_include)
 
 sugar_include(about)
-sugar_include(app)
 sugar_include(openweathermap)
-sugar_include(settings)
-sugar_include(spotlight)

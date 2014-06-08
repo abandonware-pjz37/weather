@@ -3,10 +3,10 @@
 # see wiki for more info:
 #   https://github.com/ruslo/sugar/wiki/Collecting-sources
 
-if(DEFINED WEATHER_UI_IMAGES_IPHONE_SUGAR_CMAKE_)
+if(DEFINED WEATHER_UI_IOS_LAUNCH_IMAGES_IPHONE_SUGAR_CMAKE_)
   return()
 else()
-  set(WEATHER_UI_IMAGES_IPHONE_SUGAR_CMAKE_ 1)
+  set(WEATHER_UI_IOS_LAUNCH_IMAGES_IPHONE_SUGAR_CMAKE_ 1)
 endif()
 
 include(sugar_files)
