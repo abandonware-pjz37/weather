@@ -11,10 +11,8 @@ include(sugar_files)
 
 sugar_files(
     WEATHER_IOS_RESOURCES
-    Default-568h@2x.png
-    Default.png
-    Default@2x.png
     MainStoryboard_iPhone.storyboard
+    MainStoryboard_iPad.storyboard
     about.png
     weather.png
 )

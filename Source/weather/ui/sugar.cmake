@@ -13,4 +13,5 @@ include(sugar_include)
 
 sugar_include(cli)
 sugar_include(icons)
+sugar_include(images)
 sugar_include(ios)
