@@ -19,8 +19,8 @@ sugar_files(
 
 sugar_files(
     WEATHER_IOS_RESOURCES
-    MainStoryboard_iPhone.storyboard
-    MainStoryboard_iPad.storyboard
+    iPhone.storyboard
+    iPad.storyboard
     about.png
     weather.png
 )
