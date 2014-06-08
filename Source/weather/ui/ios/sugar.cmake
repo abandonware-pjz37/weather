@@ -13,9 +13,8 @@ include(sugar_files)
 include(sugar_include)
 
 sugar_include(icons)
-sugar_include(iphone)
 sugar_include(launch_images)
-sugar_include(resources)
+sugar_include(views)
 
 sugar_files(
     WEATHER_IOS_SOURCES
