@@ -6,7 +6,7 @@
 
 #include <weather/ui/ios/WeatherTabDelegate.fpp>
 
-#include <weather/ui/ios/views/Weather.h>
+#include <weather/ui/ios/views/Weather.hpp>
 #include <weather/DelegateBase.hpp>
 
 namespace weather {

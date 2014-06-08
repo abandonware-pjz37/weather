@@ -4,7 +4,7 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import <weather/ui/ios/views/Weather.h>
+#import <weather/ui/ios/views/Weather.hpp>
 #include <sober/network/Engine.hpp>
 #include <sober/network/http/Stream.hpp>
 #include <weather/ui/ios/WeatherTabDelegate.hpp>

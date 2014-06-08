@@ -1,7 +1,7 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import <weather/ui/ios/views/About.h>
+#import <weather/ui/ios/views/About.hpp>
 
 @interface About ()
 @property (strong, nonatomic) IBOutlet UITableView *table_view;

@@ -1,11 +1,11 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import "iPhone.h"
+#import "iPhone.hpp"
 
 #import <UIKit/UIStoryboard.h>
-#import "Weather.h"
-#import "About.h"
+#import "Weather.hpp"
+#import "About.hpp"
 
 @interface iPhone ()
 

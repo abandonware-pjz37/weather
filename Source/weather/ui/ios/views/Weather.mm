@@ -1,7 +1,7 @@
 // Copyright (c) 2014, Ruslan Baratov
 // All rights reserved.
 
-#import <weather/ui/ios/views/Weather.h>
+#import <weather/ui/ios/views/Weather.hpp>
 
 #import <MapKit/MapKit.h> // MKMapView
 #import <UIKit/UIImageView.h>

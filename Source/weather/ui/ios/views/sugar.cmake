@@ -11,11 +11,11 @@ include(sugar_files)
 
 sugar_files(
     WEATHER_IOS_SOURCES
-    About.h
+    About.hpp
     About.mm
-    Weather.h
+    Weather.hpp
     Weather.mm
-    iPhone.h
+    iPhone.hpp
     iPhone.mm
 )
 
