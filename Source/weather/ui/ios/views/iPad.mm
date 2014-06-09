@@ -39,8 +39,13 @@
       weather_storyboard instantiateViewControllerWithIdentifier:@"Weather"
   ];
 
+  UINavigationController* navigation = [
+      [UINavigationController alloc] initWithRootViewController:about
+  ];
+  navigation.navigationBar.translucent = NO;
+
   NSArray* controllers = [
-      [NSArray alloc] initWithObjects:(id)about, weather, nullptr
+      [NSArray alloc] initWithObjects:(id)navigation, weather, nullptr
   ];
 
   self.viewControllers = controllers;
