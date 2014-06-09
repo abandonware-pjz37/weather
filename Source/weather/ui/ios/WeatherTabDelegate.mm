@@ -26,7 +26,13 @@ void WeatherTabDelegate::on_success() {
   }
   catch (const std::exception& exc) {
     buffer_.str("");
-    buffer_ << exc.what();
+    if (exc.what() == std::string("Error: Not found city")) {
+      // Make message more readable
+      buffer_ << "City not found";
+    }
+    else {
+      buffer_ << exc.what();
+    }
     on_error();
     return;
   }
