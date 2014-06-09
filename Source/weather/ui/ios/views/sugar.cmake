@@ -15,6 +15,8 @@ sugar_files(
     About.mm
     Weather.hpp
     Weather.mm
+    iPad.hpp
+    iPad.mm
     iPhone.hpp
     iPhone.mm
 )
