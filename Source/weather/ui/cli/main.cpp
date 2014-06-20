@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
     namespace net = sober::network;
 
     // Disable boost.log
-    sober::utils::Test::init_logs(false, false);
+    sober::log::Logger::init_logs_for_testing(false, false);
 
     net::Engine engine;
     net::http::Stream stream(engine);
