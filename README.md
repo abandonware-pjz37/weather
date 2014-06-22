@@ -7,10 +7,10 @@ Simple cross-platform open source weather by city application. Hunter package ma
 ### C/C++ core
 
 * [Boost](http://www.boost.org/)
-* [CppNetlib](http://cpp-netlib.org/)
-* [OpenSSL](http://www.openssl.org/)
+* [Sober](http://github.com/ruslo/sober)
+* [CppNetlib.URI](https://github.com/cpp-netlib/uri)
 * [GTest](http://code.google.com/p/googletest/)
-* [RapidJSON](http://code.google.com/p/rapidjson/)
+* [JSONSpirit](https://github.com/cierelabs/json_spirit)
 
 ### Build system
 
@@ -19,6 +19,11 @@ Simple cross-platform open source weather by city application. Hunter package ma
   * [Sugar](https://github.com/ruslo/sugar) - tools, wrappers, workarounds, ...
   * [Polly](https://github.com/ruslo/polly) - toolchain files
   * [Hunter](https://github.com/ruslo/hunter) - package manager
+
+### Usage
+
+*Note* that a lot of time (~1 hour) and space (> 1 Gb) may be required for build, so
+consider test this [tiny-project](https://github.com/forexample/hunter-simple) before run.
 
 ### iOS
 
