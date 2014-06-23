@@ -25,7 +25,7 @@ Simple cross-platform open source weather by city application. Hunter package ma
 * CMake version 3.0 ([more](https://github.com/ruslo/hunter/wiki/Requirements#cmake-30))
 * `HUNTER_ROOT` environment variable ([more](https://github.com/ruslo/hunter/wiki/Requirements#hunter_root))
 * Python 3 (For `Xcode` and `Visual Studio` based projects)
-* `POLLY_ROOT` environment variable ([more](https://github.com/ruslo/hunter/wiki/Requirements#toolchains-example-polly))
+* `POLLY_ROOT` environment variable (for toolchain-based builds, [more](https://github.com/ruslo/hunter/wiki/Requirements#toolchains-example-polly))
 
 ### Usage
 
@@ -89,6 +89,35 @@ cmake version 3.0.0
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/gcc.cmake
 ```
 
+##### Mac (Xcode)
+
+##### Mac (Makefile)
+
+* Check cmake version, `HUNTER_ROOT` and `POLLY_ROOT` environment variables:
+```
+> which cmake
+/path/to/cmake
+> cmake --version
+cmake version 3.0.0
+> echo $HUNTER_ROOT
+/path/to/hunter/root/
+> echo $POLLY_ROOT
+/path/to/toolchains
+```
+
+* Pick toolchain with `c++11` support, for example [libcxx](https://github.com/ruslo/polly/wiki/Toolchain-list#libcxx)
+(`clang -std=c++11 -stdlib=libc++`):
+```
+
+> ls $POLLY_ROOT/libcxx.cmake
+/path/to/toolchains/libcxx.cmake
+```
+
+* Start build:
+```
+> cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/libcxx.cmake
+```
+##### Mac (iOS)
 
 ### iOS
 
