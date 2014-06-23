@@ -248,12 +248,16 @@ cmake version 3.0.0
 /path/to/toolchains
 ```
 
-* Check [ios](https://github.com/ruslo/polly/wiki/Toolchain-list#ios) toolchain and start build:
+* Check [ios](https://github.com/ruslo/polly/wiki/Toolchain-list#ios) toolchain and install dependencies:
 ```
 > ls $POLLY_ROOT/ios.cmake
 /path/to/toolchains/ios.cmake
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/ios.cmake -GXcode
-> cmake --build _builds
+```
+
+* Open project in `Xcode` and build/run on target you need:
+```
+> open _builds/Weather.xcodeproj
 ```
 
 [![AppStore][appstore_logo]][weather_link]
