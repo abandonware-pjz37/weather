@@ -3,6 +3,7 @@
 
 #include <weather/ui/cli/Delegate.hpp>
 
+#include <iostream> // std::cout
 #include <sober/network/http/response/attribute/StatusCode.hpp>
 
 namespace weather {
