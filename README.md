@@ -186,6 +186,20 @@ cmake version 3.0.0
 > cmake --build _builds
 ```
 
+* Test it:
+```
+> ./_builds/weather-cli Madrid
+City: Madrid
+Success...
+  longitude: -3.7
+  latitude: 40.42
+  temperature: 17.71
+  temperature(human): +17.7 ℃
+  description: Sky is Clear
+  icon: 01d
+Done
+```
+
 ##### Mac (iOS)
 
 * Build patched cmake and add it to the `PATH`:
