@@ -20,10 +20,48 @@ Simple cross-platform open source weather by city application. Hunter package ma
   * [Polly](https://github.com/ruslo/polly) - toolchain files
   * [Hunter](https://github.com/ruslo/hunter) - package manager
 
+### Requirements
+
+* CMake version 3.0 ([more](https://github.com/ruslo/hunter/wiki/Requirements#cmake-30))
+* `HUNTER_ROOT` environment variable ([more](https://github.com/ruslo/hunter/wiki/Requirements#hunter_root))
+* Python 3 (For `Xcode` and `Visual Studio` based projects)
+* `POLLY_ROOT` environment variable ([more](https://github.com/ruslo/hunter/wiki/Requirements#toolchains-example-polly))
+
 ### Usage
 
 *Note* that a lot of time (> 1 hour) and space (> 1 GB) may be required for build, so be patient and
 consider test this [tiny-project](https://github.com/forexample/hunter-simple) before run.
+
+#### Download and unpack
+
+Download and unpack current release archive and cd to unpacked directory.
+Unix-style:
+
+```
+> wget https://github.com/ruslo/weather/archive/v1.2.0.tar.gz
+> tar xf v1.2.0.tar.gz
+> cd weather-1.2.0
+```
+
+##### Windows (Visual Studio, tested with 2013 32/64)
+
+* Run cmd and check cmake version, HUNTER_ROOT environment, python 3:
+```
+> where cmake
+/path/to/cmake
+> cmake --version
+cmake version 3.0.0
+> where python
+/path/to/python.exe
+> python --version
+Python 3.x.x
+> echo %HUNTER_ROOT%
+/path/to/hunter/root
+```
+* Start build:
+```
+> cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -G"Visual Studio 12 2013 Win64"
+```
 
 ### iOS
 
