@@ -70,6 +70,7 @@ Python 3.x.x
 * Start build:
 ```
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -G"Visual Studio 12 2013 Win64"
+> cmake --build _builds
 ```
 
 ##### Windows (cygwin)
@@ -90,6 +91,7 @@ cmake version 3.0.0
 ```
 > ls $POLLY_ROOT/cygwin.cmake
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/cygwin.cmake
+> cmake --build _builds
 ```
 
 ##### Linux
@@ -116,6 +118,7 @@ cmake version 3.0.0
 * Start build:
 ```
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/gcc.cmake
+> cmake --build _builds
 ```
 
 ##### Mac (Xcode)
@@ -139,6 +142,7 @@ cmake version 3.0.0
 > ls $POLLY_ROOT/xcode.cmake
 /path/to/toolchains/xcode.cmake
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/xcode.cmake -GXcode
+> cmake --build _builds
 ```
 
 ##### Mac (Makefile)
@@ -165,6 +169,7 @@ cmake version 3.0.0
 * Start build:
 ```
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/libcxx.cmake
+> cmake --build _builds
 ```
 
 ##### Mac (iOS)
@@ -200,6 +205,7 @@ cmake version 3.0.0
 > ls $POLLY_ROOT/ios.cmake
 /path/to/toolchains/ios.cmake
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/ios.cmake -GXcode
+> cmake --build _builds
 ```
 
 [![AppStore][appstore_logo]][weather_link]
