@@ -162,7 +162,21 @@ cmake version 3.0.0
 > ls $POLLY_ROOT/xcode.cmake
 /path/to/toolchains/xcode.cmake
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/xcode.cmake -GXcode
-> cmake --build _builds
+> cmake --build _builds --config Release
+```
+
+* Test it:
+```
+> ./_builds/Release/weather-cli Madrid
+City: Madrid
+Success...
+  longitude: -3.7
+  latitude: 40.42
+  temperature: 21.69
+  temperature(human): +21.7 ℃
+  description: Sky is Clear
+  icon: 01d
+Done
 ```
 
 ##### Mac (Makefile)
