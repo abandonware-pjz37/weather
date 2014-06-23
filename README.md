@@ -57,15 +57,15 @@ Unix-style:
 * Run cmd and check cmake version, `HUNTER_ROOT` environment, python 3:
 ```
 > where cmake
-/path/to/cmake
+\path\to\cmake
 > cmake --version
 cmake version 3.0.0
 > where python
-/path/to/python.exe
+\path\to\python.exe
 > python --version
 Python 3.x.x
 > echo %HUNTER_ROOT%
-/path/to/hunter/root
+\path\to\hunter\root
 ```
 * Start build:
 ```
