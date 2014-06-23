@@ -43,6 +43,15 @@ Unix-style:
 > cd weather-1.2.0
 ```
 
+#### Build and test
+
+* [Windows Visual Studio](https://github.com/ruslo/weather#windows-visual-studio-tested-with-2013-3264)
+* [Windows Cygwin](https://github.com/ruslo/weather#windows-cygwin)
+* [Linux](https://github.com/ruslo/weather#linux)
+* [Mac Xcode](https://github.com/ruslo/weather#mac-xcode)
+* [Mac Makefile](https://github.com/ruslo/weather#mac-makefile)
+* [Mac iOS](https://github.com/ruslo/weather#mac-ios)
+
 ##### Windows (Visual Studio, tested with 2013 32/64)
 
 * Run cmd and check cmake version, `HUNTER_ROOT` environment, python 3:
