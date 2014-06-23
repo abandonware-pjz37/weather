@@ -121,6 +121,20 @@ cmake version 3.0.0
 > cmake --build _builds
 ```
 
+* Test it:
+```
+> ./_builds/weather-cli Madrid
+City: Madrid
+Success...
+  longitude: -3.7
+  latitude: 40.42
+  temperature: 17.17
+  temperature(human): +17.2 ℃
+  description: sky is clear
+  icon: 02d
+Done
+```
+
 ##### Mac (Xcode)
 
 * Check cmake version, python 3, `HUNTER_ROOT` and `POLLY_ROOT` environment variables:
