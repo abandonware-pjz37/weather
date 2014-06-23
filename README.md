@@ -22,7 +22,7 @@ Simple cross-platform open source weather by city application. Hunter package ma
 
 ### Usage
 
-*Note* that a lot of time (~1 hour) and space (> 1 Gb) may be required for build, so
+*Note* that a lot of time (> 1 hour) and space (> 1 GB) may be required for build, so be patient and
 consider test this [tiny-project](https://github.com/forexample/hunter-simple) before run.
 
 ### iOS
