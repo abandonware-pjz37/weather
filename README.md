@@ -45,7 +45,7 @@ Unix-style:
 
 ##### Windows (Visual Studio, tested with 2013 32/64)
 
-* Run cmd and check cmake version, HUNTER_ROOT environment, python 3:
+* Run cmd and check cmake version, `HUNTER_ROOT` environment, python 3:
 ```
 > where cmake
 /path/to/cmake
@@ -62,6 +62,33 @@ Python 3.x.x
 ```
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -G"Visual Studio 12 2013 Win64"
 ```
+
+##### Linux
+
+* Check cmake version, `HUNTER_ROOT` and `POLLY_ROOT` environment variables:
+```
+> which cmake
+/path/to/cmake
+> cmake --version
+cmake version 3.0.0
+> echo $HUNTER_ROOT
+/path/to/hunter/root/
+> echo $POLLY_ROOT
+/path/to/toolchains
+```
+
+* Pick toolchain with `c++11` support, for example [gcc](https://github.com/ruslo/polly/wiki/Toolchain-list#gcc)
+(`gcc -std=c++11`):
+```
+> ls $POLLY_ROOT/gcc.cmake
+/path/to/toolchains/gcc.cmake
+```
+
+* Start build:
+```
+> cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/gcc.cmake
+```
+
 
 ### iOS
 
