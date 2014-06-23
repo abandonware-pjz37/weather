@@ -91,6 +91,27 @@ cmake version 3.0.0
 
 ##### Mac (Xcode)
 
+* Check cmake version, python 3, `HUNTER_ROOT` and `POLLY_ROOT` environment variables:
+```
+> which cmake
+/path/to/cmake
+> cmake --version
+cmake version 3.0.0
+> which python3
+/path/to/python3
+> echo $HUNTER_ROOT
+/path/to/hunter/root/
+> echo $POLLY_ROOT
+/path/to/toolchains
+```
+
+* Check [xcode](https://github.com/ruslo/polly/wiki/Toolchain-list#xcode) toolchain and start build:
+```
+> ls $POLLY_ROOT/xcode.cmake
+/path/to/toolchains/xcode.cmake
+> cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/xcode.cmake -GXcode
+```
+
 ##### Mac (Makefile)
 
 * Check cmake version, `HUNTER_ROOT` and `POLLY_ROOT` environment variables:
@@ -108,7 +129,6 @@ cmake version 3.0.0
 * Pick toolchain with `c++11` support, for example [libcxx](https://github.com/ruslo/polly/wiki/Toolchain-list#libcxx)
 (`clang -std=c++11 -stdlib=libc++`):
 ```
-
 > ls $POLLY_ROOT/libcxx.cmake
 /path/to/toolchains/libcxx.cmake
 ```
