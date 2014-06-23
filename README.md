@@ -81,24 +81,7 @@ Python 3.x.x
 
 ##### Windows (cygwin)
 
-* Check cmake version, `HUNTER_ROOT` and `POLLY_ROOT` environment variables:
-```
-> which cmake
-/path/to/cmake # cygwin version here, not windows!
-> cmake --version
-cmake version 3.0.0
-> echo $HUNTER_ROOT
-/path/to/hunter/root/
-> echo $POLLY_ROOT
-/path/to/toolchains
-```
-
-* Pick [cygwin](https://github.com/ruslo/polly/wiki/Toolchain-list#cygwin) toolchain and start build:
-```
-> ls $POLLY_ROOT/cygwin.cmake
-> cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/cygwin.cmake
-> cmake --build _builds
-```
+* Not working (`g++-4.8.3` don't have `std::to_string` which is used by CppNetlib.URI)
 
 ##### Linux
 
