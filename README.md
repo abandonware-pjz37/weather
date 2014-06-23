@@ -137,9 +137,41 @@ cmake version 3.0.0
 ```
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/libcxx.cmake
 ```
+
 ##### Mac (iOS)
 
-### iOS
+* Build patched cmake and add it to the `PATH`:
+```
+> CMAKE_VERSION="3.0.0-ios-universal"
+> wget "https://github.com/ruslo/CMake/archive/v${CMAKE_VERSION}.tar.gz"
+> tar xf "v${CMAKE_VERSION}.tar.gz"
+> cd "CMake-${CMAKE_VERSION}"
+> cmake -H. -B_builds -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="`pwd`/_install" -DCMAKE_USE_SYSTEM_CURL=YES
+> cmake --build _builds --target install
+> export PATH="`pwd`/_install/bin:${PATH}"
+> cd ..
+```
+
+* Check cmake version, python 3, `HUNTER_ROOT` and `POLLY_ROOT` environment variables:
+```
+> which cmake
+/path/to/patched/cmake/version/_install/bin/cmake
+> cmake --version
+cmake version 3.0.0
+> which python3
+/path/to/python3
+> echo $HUNTER_ROOT
+/path/to/hunter/root/
+> echo $POLLY_ROOT
+/path/to/toolchains
+```
+
+* Check [ios](https://github.com/ruslo/polly/wiki/Toolchain-list#ios) toolchain and start build:
+```
+> ls $POLLY_ROOT/ios.cmake
+/path/to/toolchains/ios.cmake
+> cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=$POLLY_ROOT/ios.cmake -GXcode
+```
 
 [![AppStore][appstore_logo]][weather_link]
 
