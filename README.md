@@ -70,7 +70,13 @@ Python 3.x.x
 * Start build:
 ```
 > cmake -H. -B_builds -DHUNTER_STATUS_DEBUG=ON -G"Visual Studio 12 2013 Win64"
-> cmake --build _builds
+> cmake --build _builds --config Release
+```
+
+* Test it:
+```
+> _builds\Release\weather-cli.exe Madrid > result.txt
+# open result.txt with utf-8 friendly text editor (notepad fits fine)
 ```
 
 ##### Windows (cygwin)
