@@ -1,11 +1,15 @@
-# Copyright (c) 2014, Ruslan Baratov
+# Copyright (c) 2014-2015, Ruslan Baratov
 # All rights reserved.
 
 cmake_minimum_required(VERSION 3.0)
+include("cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.11.3.tar.gz"
+    SHA1 "949d85f5f3f52ffc000c5f2a9ba5f97fb66816aa"
+)
 project(Weather)
 
 ### Download dependencies ###
-include(HunterGate.cmake)
 hunter_add_package(Sober)
 hunter_add_package(Sugar) # SUGAR_ROOT
 
