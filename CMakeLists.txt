@@ -4,8 +4,8 @@
 cmake_minimum_required(VERSION 3.0)
 include("cmake/HunterGate.cmake")
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.11.3.tar.gz"
-    SHA1 "949d85f5f3f52ffc000c5f2a9ba5f97fb66816aa"
+    URL "https://github.com/ruslo/hunter/archive/v0.11.4.tar.gz"
+    SHA1 "caded3d303e471f789db67e658b5a4ffb221d670"
     LOCAL
 )
 project(Weather)
