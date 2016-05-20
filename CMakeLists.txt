@@ -38,6 +38,10 @@ endif()
 ### Targets ###
 add_executable(weather-cli ${WEATHER_SOURCES} ${WEATHER_CLI_SOURCES})
 target_link_libraries(weather-cli sober)
+if("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
+  find_package(Threads REQUIRED)
+  target_link_libraries(weather-cli ${CMAKE_THREAD_LIBS_INIT})
+endif()
 sugar_groups_generate(${WEATHER_SOURCES} ${WEATHER_CLI_SOURCES})
 
 ### iOS Target ###
